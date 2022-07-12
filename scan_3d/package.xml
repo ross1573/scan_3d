@@ -2,9 +2,9 @@
 <package>
   <name>scan_3d</name>
   <version>1.10.0</version>
-  <description>The rplidar ros package, support rplidar A2/A1 and A3/S1</description>
+  <description>PointCloud generator based on LaserScan massage</description>
 
-  <maintainer email="ros@slamtec.com">Slamtec ROS Maintainer</maintainer>
+  <maintainer email="ross15733578@gmail.com">JunTak Lee</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
