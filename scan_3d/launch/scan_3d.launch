@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="map_update_distance_thresh" default="0.01"/>
+  <arg name="map_update_angle_thresh" default="0.01"/>
+  <arg name="visualize_rviz" default="false"/>
+  <arg name="visualize_pcl" default="true"/>
+  <arg name="ground_search_angle" default="5.0"/>
+
+  <node pkg="scan_3d" type="scan_3d" name="scan_3d" output="screen">
+    <param name="map_update_distance_thresh" value="$(arg map_update_distance_thresh)"/>
+    <param name="map_update_angle_thresh" value="$(arg map_update_angle_thresh)"/>
+    <param name="visualize_rviz" value="$(arg visualize_rviz)"/>
+    <param name="visualize_pcl" value="$(arg visualize_pcl)"/>
+    <param name="ground_search_angle" value="$(arg ground_search_angle)"/>
+    <param name="use_trigonometric_ground_search" value="true"/>
+  </node>
+  
+  <!-- For testing only >
+  <remap from="scan" to="scan_3d"/>
+  <include file="$(find rplidar_data)/launch/rplidar_data.launch"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100"/>
+  < Testing end -->
+</launch>
