@@ -9,6 +9,8 @@
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>
 #include <tf/message_filter.h>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 #include <pcl/point_types.h>
 #include <pcl_ros/point_cloud.h>

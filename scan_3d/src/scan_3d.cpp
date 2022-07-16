@@ -23,7 +23,9 @@ Scan3D::Scan3D()
     map_publisher_ = node_.advertise<cloud_msg_t>(topic_map_, 10, false);
     map_pcl_publisher_ = node_.advertise<cloud_t>(topic_map_ + "_pcl", 10, false);
     
+    pose_.rotation.x =  0.0;
     pose_.rotation.y = -acos(-1.0)/2.0;
+    pose_.rotation.z =  0.0;
 }
 
 Scan3D::~Scan3D() {}
@@ -81,19 +83,10 @@ matrix4 Scan3D::createTransformMatrix(double position_factor) {
     double z = pose_.rotation.x;	/* roll */
 
     matrix4 tf;
-    /*tf <<  cos(x)*cos(y), cos(x)*sin(y)*sin(z)-sin(x)*cos(z), cos(x)*sin(y)*cos(z)+sin(x)*sin(z), -pose_.position.x * position_factor,
-           sin(x)*cos(y), sin(x)*sin(y)*sin(z)+cos(x)*cos(z), sin(x)*sin(y)*cos(z)-cos(x)*sin(z), -pose_.position.y * position_factor,
-          -sin(y)       , cos(y)*sin(z)                     , cos(y)*cos(z)                     ,  pose_.position.z,
-           0            , 0                                 , 0                                 ,  1.0;*/
-    /*tf <<  cos(x)*cos(y)                     , sin(x)*cos(y)                    , -sin(y)        , -pose_.position.x * position_factor,
-           cos(x)*sin(y)*sin(z)-sin(x)*cos(z), sin(x)*sin(y)*sin(z)+cos(x)*cos(z),  cos(y)*sin(z) , -pose_.position.y * position_factor,
-           cos(x)*sin(y)*cos(z)+sin(x)*sin(z), sin(x)*sin(y)*cos(z)-cos(x)*sin(z),  cos(y)*cos(z) ,  pose_.position.z,
-           0                                 , 0                                 ,  0             ,  1.0;*/
     tf << cos(z)*cos(y), -sin(z), cos(z)*sin(x), pose_.position.x * position_factor,                                                                // Roll, Yaw, Pitch transform matrix
           cos(x)*cos(y)*sin(z) + sin(x)*sin(y), cos(x)*cos(z), cos(x)*sin(z)*sin(y) - sin(x)*cos(y), pose_.position.y * position_factor,
           sin(x)*sin(z)*cos(y) - cos(x)*sin(y), sin(x)*cos(z), sin(x)*sin(z)*sin(y) + cos(x)*cos(y), pose_.position.z,
           0, 0, 0, 1.0;
-
     return tf;
 }
 
@@ -187,6 +180,6 @@ void Scan3D::updatePose(const pose_t& pose) {
     pose_.position.x = pose.position.x;
     pose_.position.y = pose.position.y;
     pose_.position.z = pose.position.z;
-    pose_.rotation.x = std::atan2(pose.orientation.z, pose.orientation.w);
+    pose_.rotation.x = std::atan2(pose.orientation.z, pose.orientation.w) * 2.0;
     pose_update_ = true;
 }
