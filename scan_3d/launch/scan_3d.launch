@@ -15,10 +15,4 @@
     <param name="ground_search_angle" value="$(arg ground_search_angle)"/>
     <param name="use_trigonometric_ground_search" value="true"/>
   </node>
-  
-  <!-- For testing only >
-  <remap from="scan" to="scan_3d"/>
-  <include file="$(find rplidar_data)/launch/rplidar_data.launch"/>
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100"/>
-  < Testing end -->
 </launch>
