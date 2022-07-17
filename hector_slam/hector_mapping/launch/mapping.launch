@@ -18,7 +18,7 @@
      
     <!-- Map size / start point -->
     <param name="map_resolution" value="0.01"/>
-    <param name="map_size" value="2048"/>
+    <param name="map_size" value="4096"/>
     <param name="map_start_x" value="0.5"/>
     <param name="map_start_y" value="0.5" />
     <param name="map_multi_res_levels" value="2" />
@@ -40,12 +40,6 @@
     <param name="scan_subscriber_queue_size" value="5"/>
     <param name="scan_topic" value="scan"/>
     
-    <!-- Debug parameters -->
-    <!--
-      <param name="output_timing" value="false"/>
-      <param name="pub_drawings" value="true"/>
-      <param name="pub_debug_output" value="true"/>
-    -->
     <param name="tf_map_scanmatch_transform_frame_name" value="scanmatcher_frame" />
   </node>
 </launch>
