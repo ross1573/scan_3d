@@ -18,8 +18,9 @@ Tested on Ubuntu 20.04LTS, ROS noetic, rplidar a3(a2)
 * captured point cloud(full pcd file at [floot_half.pcd](https://github.com/ross1573/scan_3d/blob/master/demo/floor_half.pcd.zip))
 <img src="./demo/floor_half_pcd.png" width="430px" height="270">
 
-<video width="430px" height="270" controls>
-  <source src="./demo/demo_capture.mp4" type="video/mp4">
-</video>
-  
+https://user-images.githubusercontent.com/44907014/183363951-281430e0-76fa-43bb-ba74-8b1b220393ef.mp4
+
+(full capture video available at [demo_capture.mp4](https://github.com/ross1573/scan_3d/blob/master/demo/demo_capture.mp4))
+
+
 -----
