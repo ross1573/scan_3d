@@ -2,11 +2,28 @@
 
 ### Requirments
 * rplidar a series
-* [Hector SLAM package](https://github.com/tu-darmstadt-ros-pkg/hector_slam.git)
-* [rplidar ROS package](https://github.com/Slamtec/rplidar_ros.git)
 ~~~
 Tested on Ubuntu 20.04LTS, ROS noetic, rplidar a3(a2)
 ~~~
+-----
+
+### Setup
+
+1. Two line ros noetic install command
+```shell
+wget -c https://raw.githubusercontent.com/qboticslabs/ros_install_noetic/master/ros_install_noetic.sh && chmod +x ./ros_install_noetic.sh && ./ros_install_noetic.sh
+```
+
+2. Install pcl-ros for ros noetic
+```shell
+sudo apt install ros-noetic-pcl-ros
+```
+
+3. Build using caktin-make
+```shell
+catkin_make
+```
+
 -----
 
 ### Node, Topic diagram
